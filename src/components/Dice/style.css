@@ -1,0 +1,16 @@
+.number {
+	background-color: #ffffff;
+	border: none;
+	width: 35px;
+	height: 35px;
+	border-radius: 3.81px;
+	box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.15);
+	color: #2b283a;
+	font-size: 20px;
+	font-weight: 700;
+	text-align: center;
+}
+
+.number.active {
+	background-color: #59e391;
+}
