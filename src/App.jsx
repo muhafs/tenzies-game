@@ -6,10 +6,12 @@ import Confetti from 'react-confetti'
 import Dice from './components/Dice'
 import Header from './components/Header'
 import Roller from './components/Roller'
+import Nav from './components/Nav'
 
 function App() {
 	const [dices, setDices] = useState(newDice())
 	const [tenzies, setTenzies] = useState(false)
+	const [counter, setCounter] = useState(0)
 	const { width, height } = useWindowSize()
 
 	useEffect(() => {
@@ -39,8 +41,10 @@ function App() {
 		if (tenzies) {
 			setDices(newDice())
 			setTenzies(false)
+			setCounter(0)
 		} else {
 			setDices((prev) => prev.map((dice) => (dice.isHeld ? dice : { id: nanoid(), value: Math.ceil(Math.random() * 6), isHeld: false })))
+			setCounter((prev) => prev + 1)
 		}
 	}
 
@@ -50,6 +54,7 @@ function App() {
 
 	return (
 		<main className="card">
+			<Nav counter={counter} />
 			<Header />
 
 			<div className="content">
